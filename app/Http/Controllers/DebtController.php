@@ -10,7 +10,7 @@ use App\Notifications;
 
 
 class DebtController extends Controller
-{       
+{
 
     function getDebtDataTable()
     {
@@ -38,7 +38,7 @@ class DebtController extends Controller
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@ class DebtController extends Controller
         if(!auth()->user()->hasPermission('view-debt'))
             return redirect('/')->with('error', __('messages.noauthorization'));
         else
-            return view('debt.debt'); 
+            return view('debt.debt');
     }
 
     /**
@@ -72,7 +72,7 @@ class DebtController extends Controller
         if(!auth()->user()->hasPermission('create-debt'))
             return redirect('/')->with('error', __('messages.noauthorization'));
         else
-            return view('debt.create'); 
+            return view('debt.create');
     }
 
     /**
@@ -85,7 +85,7 @@ class DebtController extends Controller
     {
         if(!auth()->user()->hasPermission('create-debt'))
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
@@ -101,7 +101,7 @@ class DebtController extends Controller
             $debt->save();
             $pacient = Pacient::find($request->input('pacient-id'));
             $notifications = new Notifications;
-            $notifications->description = $pacient->first_name.' '.$pacient->last_name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
+            $notifications->description = $pacient->name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
             $notifications->type = 'Debt-'.$debt->id;
             $notifications->date = $request->input('Afati');
             $notifications->opened = false;
@@ -122,7 +122,7 @@ class DebtController extends Controller
         if(!auth()->user()->hasPermission('view-debt'))
             return redirect('/login')->with('error', __('messages.noauthorization'));
         else
-            return view('debt.show')->with('debt',$debt); 
+            return view('debt.show')->with('debt',$debt);
     }
 
     /**
@@ -137,7 +137,7 @@ class DebtController extends Controller
         if(!auth()->user()->hasPermission('edit-debt'))
             return redirect('/login')->with('error', __('messages.noauthorization'));
         else
-            return view('debt.edit')->with('debt',$debt); 
+            return view('debt.edit')->with('debt',$debt);
     }
 
     /**
@@ -151,7 +151,7 @@ class DebtController extends Controller
     {
         if(!auth()->user()->hasPermission('edit-debt'))
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
@@ -169,20 +169,20 @@ class DebtController extends Controller
             $debt->save();
             if(!empty($notifications))
             {
-                $notifications->description = $pacient->first_name.' '.$pacient->last_name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
+                $notifications->description = $pacient->name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
                 $notifications->date = $request->input('Afati');
                 $notifications->opened = false;
                 $notifications->save();
             }
             else{
                 $notifications = new Notifications;
-                $notifications->description = $pacient->first_name.' '.$pacient->last_name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
+                $notifications->description = $pacient->name.' borgji ka afat deri në datën: '.$request->input('Afati').'.';
                 $notifications->type = 'Debt-'.$debt->id;
                 $notifications->date = $request->input('Afati');
                 $notifications->opened = false;
                 $notifications->save();
             }
-           
+
             return redirect('/debt')->with('success',__('messages.debt-edit'));
         }
     }
@@ -198,16 +198,16 @@ class DebtController extends Controller
         $debt = Debt::find($id);
         if(!auth()->user()->hasPermission('delete-debt'))
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
             $notifications = Notifications::where('type','=','Debt-'.$debt->id)->first();
             if(!empty($notifications))
-            {   
+            {
                 $notifications->delete();
             }
-            $debt->delete();           
+            $debt->delete();
             return redirect('/debt')->with('success',__('messages.debt-delete'));
         }
     }

@@ -33,23 +33,23 @@
                                     <input name="_method" type="hidden" value="DELETE">
                                     <button type="submit" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <form method="GET" action="{{ url('raporti') }}" class="d-inline form-inline">
                 <input id="id" hidden name="id" value="{{$report->id}}"/>
               <button type="submit" class="btn btn-circle btn-success "><i class="fa fa-print"></i></button>
               </form>
             </div>
         </div>
-        
-        
+
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4 p-5">
             <table width="100%" cellpadding="4" cellspacing="0">
-            
+
                 <tr>
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm; text-align: center"><p lang="en" class="western" align="center" style="margin-top: 0.21cm; font-style: normal; page-break-inside: avoid; text-decoration: none; page-break-after: avoid">
@@ -75,7 +75,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -117,7 +117,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -134,7 +134,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -144,35 +144,20 @@
                         <font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Pacienti:</b></span></font></font></p>
                     </td>
                     <td width="136" style="background: transparent" style="border: none; padding: 0cm"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->first_name}} {{$pacient->fathers_name}} {{$pacient->last_name}} </span></font></font></p>
+                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->name}}  </span></font></font></p>
                     </td>
                     <td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
                         <font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Nr personal:</b></span></font></font></p>
                     </td>
                     <td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->personal_number}}  </span></font></font></p>
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
-                    <td width="164" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="font-style: normal; text-decoration: none">
-                        <font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Data e lindjes:</b></span></font></font></p>
-                    </td>
-                    <td width="136" style="background: transparent" style="border: none; padding: 0cm"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->date_of_birth}}</span></font></font></p>
-                    </td>
-                    <td width="136" style="background: transparent" style="border: none; padding: 0cm ; text-align: right"><p lang="en" class="western" align="left" style="font-style: normal; text-decoration: none">
-                        <font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Adresa:</b></span></font></font></p>
-                    </td>
-                    <td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->address}}</span></font></font></p>
+                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->phone}}  </span></font></font></p>
                     </td>
                 </tr>
                 <tr>
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -195,7 +180,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -217,7 +202,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -240,7 +225,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -268,7 +253,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -288,7 +273,7 @@
                     <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
                     <td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
                         <br/>
-            
+
                         </p>
                     </td>
                 </tr>
@@ -320,7 +305,7 @@
                     <td align="left" valign=bottom><font face="Times New Roman"><br></font></td>
                     <td align="left" valign=bottom><font color="#000000"><br></font></td>
                 </tr>
-                
+
             </table>
 </div>
 </div>

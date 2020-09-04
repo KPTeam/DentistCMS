@@ -29,7 +29,9 @@
     $.ajax({
       type:'POST',
       url:'/markAsRead',
-      data:{"id":id},
+      data:{
+        "_token": "{{ csrf_token() }}",
+          "id":id},
       success:function(data)
       {
         $('#not'+id+' #notifications span').text('U markua si e lexuar');
@@ -281,9 +283,9 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profili
                 </a>
-                <a class="dropdown-item" href="/settings">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Aranzhimi
+                <a class="dropdown-item" href="/logs">
+                  <i class="fas fa-history fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Aktiviteti
                 </a>
                 <a class="dropdown-item" href="/backup">
                     <i class="fas fa-database fa-sm fa-fw mr-2 text-gray-400"></i>

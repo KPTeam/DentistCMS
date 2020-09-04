@@ -39,7 +39,7 @@ class AppointmentController extends Controller
                             <input name="_method" type="hidden" value="DELETE">
                             <button type="submit" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></button>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ class AppointmentController extends Controller
     {
         if(auth()->guest())
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
@@ -115,7 +115,7 @@ class AppointmentController extends Controller
             $pacient = Pacient::find($request->input('pacient-id'));
             $notifications = new Notifications;
             $notifications->type = 'termin-'.$appointment->id;
-            $notifications->description = $pacient->first_name.' '.$pacient->last_name.' ka terminin për ditën e nesërme në ora '.$appointment->time_of_appointment.'.';
+            $notifications->description = $pacient->name.' ka terminin për ditën e nesërme në ora '.$appointment->time_of_appointment.'.';
             $notifications->date = $request->input('data');
             $notifications->opened = false;
             $notifications->save();
@@ -132,7 +132,7 @@ class AppointmentController extends Controller
     public function show($id)
     {
         $appointments = Appointment::find($id);
-        
+
         if(auth()->guest())
             return redirect('/login')->with('error', __('messages.noauthorization'));
         else
@@ -167,7 +167,7 @@ class AppointmentController extends Controller
     {
         if(auth()->guest())
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
@@ -194,7 +194,7 @@ class AppointmentController extends Controller
             $appointment->save();
             if(!empty($notifications))
             {
-                $notifications->description = $pacient->first_name.' '.$pacient->last_name.' ka terminin për ditën e nesërme në ora '.$appointment->time_of_appointment.'.';
+                $notifications->description = $pacient->name.' ka terminin për ditën e nesërme në ora '.$appointment->time_of_appointment.'.';
                 $notifications->date =  $request->input('data');
                 $notifications->opened = false;
                 $notifications->save();
@@ -212,10 +212,10 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         $appointment = Appointment::find($id);
-        
+
         if(auth()->guest())
         {
-            return redirect('/')->with('error',__('messages.noauthorization')); 
+            return redirect('/')->with('error',__('messages.noauthorization'));
         }
         else
         {
@@ -225,7 +225,7 @@ class AppointmentController extends Controller
             {
                 $notifications->delete();
             }
-            $appointment->delete();           
+            $appointment->delete();
             return redirect('/appointment')->with('success','Është fshirë Termini');
         }
     }

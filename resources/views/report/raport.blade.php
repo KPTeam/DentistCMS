@@ -121,30 +121,15 @@
 			<font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Pacienti:</b></span></font></font></p>
 		</td>
 		<td width="136" style="background: transparent" style="border: none; padding: 0cm"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->first_name}} {{$pacient->fathers_name}} {{$pacient->last_name}} </span></font></font></p>
+			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->name}}</span></font></font></p>
 		</td>
 		<td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-			<font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Nr personal:</b></span></font></font></p>
+			<font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Nr telefonit:</b></span></font></font></p>
 		</td>
 		<td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->personal_number}}  </span></font></font></p>
+			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->phone}}  </span></font></font></p>
 		</td>
 	</tr>
-	<tr valign="top">
-        <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
-		<td width="164" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="font-style: normal; text-decoration: none">
-			<font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Data e lindjes:</b></span></font></font></p>
-		</td>
-		<td width="136" style="background: transparent" style="border: none; padding: 0cm"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->date_of_birth}}</span></font></font></p>
-		</td>
-		<td width="136" style="background: transparent" style="border: none; padding: 0cm ; text-align: right"><p lang="en" class="western" align="left" style="font-style: normal; text-decoration: none">
-			<font face="Calibri, sans-serif"><font size="2" style="font-size: 11pt"><span lang="en"><b>Adresa:</b></span></font></font></p>
-		</td>
-		<td width="136" style="background: transparent" style="border: none; padding: 0cm; text-align: right"><p lang="en-US" class="western" align="left" style="font-style: normal; font-weight: normal; text-decoration: none">
-			<font face="Liberation Serif, serif"><font size="3" style="font-size: 10pt"><span style="text-decoration: none">{{$pacient->address}}</span></font></font></p>
-		</td>
-    </tr>
     <tr>
         <td width="40" align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td colspan="4" width="596" valign="top" style="background: transparent" style="border: none; padding: 0cm"><p lang="en" class="western" align="left" style="text-decoration: none">
@@ -266,7 +251,7 @@
 			</p>
 		</td>
     </tr>
-    
+
 </table>
 <div style=" position: absolute;
 bottom: 0">
@@ -307,17 +292,17 @@ bottom: 0">
           </b></span></font></font>
 </p>
 <p lang="en" class="western" style="margin-bottom: 0.35cm; line-height: 100%">
-         <font face="Calibri, sans-serif"><font size="2" style="font-size: 10pt"><b>					
+         <font face="Calibri, sans-serif"><font size="2" style="font-size: 10pt"><b>
                   </b></font></font>
 </p>
 <p lang="en-US" class="western" style="margin-bottom: 0.35cm; line-height: 100%">
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                               
+
+
+
+
+
+
+
 </p>
 </body>
 </html>

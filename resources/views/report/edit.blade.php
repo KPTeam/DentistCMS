@@ -41,9 +41,8 @@
                           <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                             <thead class="bg-dark text-light">
                               <tr>
-                                <th scope="col">Emri</th>
-                                <th scope="col">Mbiemri</th>
-                                <th scope="col">Nr Personal</th>
+                                <th scope="col">Emri Mbiemri</th>
+                                <th scope="col">Nr Tel</th>
                                 <th scope="col">Shto</th>
                               </tr>
                             </thead>
@@ -96,14 +95,14 @@
                             <tbody>
                             </tbody>
                           </table>
-                            
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbylle</button>
                         </div>
                       </div>
                     </div>
-                  </div> 
+                  </div>
                   @if ($errors->has('user-id'))
                   <span class="help-block">
                     <strong class="text-danger"><small>{{ $errors->first('user-id') }}</small></strong>
@@ -146,7 +145,7 @@
               </span>
           @endif
 </div>
-    
+
               <div class="form-group">
                 <a class="btn btn-circle btn-secondary" href="{{ url()->previous() }}" ><i class="fa fa-chevron-left"></i></a>
                   <button type="submit"  class="btn btn-circle btn-primary float-right"><i class="fa fa-save"></i></button>

@@ -17,121 +17,31 @@
             <form class="user" method="POST" action="{{ route('pacient.store') }}">
                 {{ csrf_field() }}
                 <div class="form-group row">
-                    <div class="col-sm-4 mb-3 mb-sm-0">
-                        <label class="text-xs"  for="first_name">Emri</label>
+                    <label class="text-xs"  for="first_name">Emri Mbiemri</label>
                     <input id="first_name" name="Emri" required type="text" value="{{old('Emri')}}" class="form-control form-control-user  @error('Emri') is-invalid @enderror"   placeholder="Emri">
-
-                                  @if ($errors->has('Emri'))
-                                                  <span class="help-block">
-                                                      <strong class="text-danger"><small>{{ $errors->first('Emri') }}</small></strong>
-                                                  </span>
-                                              @endif
-                                </div>
-                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label class="text-xs"  for="fathers_name">Emri i Prindit</label>
-                                        <input id="fathers_name" name="Emri_Prindit"  value="{{old('Emri_Prindit')}}"  required type="text" class="form-control form-control-user @error('Emri_Prindit') is-invalid @enderror"  placeholder="Emri Prindit">
-                                        @if ($errors->has('Emri_Prindit'))
-                                                  <span class="help-block">
-                                                      <strong class="text-danger"><small>{{ $errors->first('Emri_Prindit') }}</small></strong>
-                                                  </span>
-                                              @endif
-                                      </div>
-                                <div class="col-sm-4">
-                                    <label class="text-xs"  for="last_name">Mbiemri</label>
-                                  <input id="last_name" name="Mbiemri" required type="text"  value="{{old('Mbiemri')}}" class="form-control form-control-user @error('Mbiemri') is-invalid @enderror" placeholder="Mbiemri">
-                                  @if ($errors->has('Mbiemri'))
-                                                  <span class="help-block">
-                                                      <strong class="text-danger"><small>{{ $errors->first('Mbiemri') }}</small></strong>
-                                                  </span>
-                                              @endif
-                                </div>
-                 </div>
-                 <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label class="text-xs"  for="personal_number">Numri Personal</label>
-                        <input id="personal_number" name="Numri_Personal" value="{{old('Numri_Personal')}}" required type="text" class="form-control form-control-user @error('Numri_Personal') is-invalid @enderror"  placeholder="Numri Personal">
-
-                          @if ($errors->has('Numri_Personal'))
-                                          <span class="help-block">
-                                              <strong class="text-danger"><small>{{ $errors->first('Numri_Personal') }}</small></strong>
-                                          </span>
-                                      @endif
-                        </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label class="text-xs"  for="date_of_birth">Data e lindjes</label>
-                        <input id="date_of_birth" name="Data_e_lindjes" required value="{{old('Data_e_lindjes')}}"  type="date"  class="form-control form-control-user @error('Data_e_lindjes') is-invalid @enderror">
-                                @if ($errors->has('Data_e_lindjes'))
-                                          <span class="help-block">
-                                              <strong class="text-danger"><small>{{ $errors->first('Data_e_lindjes') }}</small></strong>
-                                          </span>
-                                      @endif
-                              </div>
-                        <div class="col-sm-4">
-                            <label class="text-xs"  for="gender">Gjinia</label>
-                                <div class="custom-control custom-checkbox small">
-                                        <input type="radio"  name="gender" value="M" class="custom-control-input @error('gender') is-invalid @enderror" checked id="gender1">
-                                        <label class="custom-control-label" for="gender1">Mashkull</label>
-                                </div>
-                                <div class="custom-control custom-checkbox small">
-                                        <input type="radio"  name="gender" value="F"  class="custom-control-input @error('gender') is-invalid @enderror" id="gender2">
-                                        <label class="custom-control-label" for="gender2">Femër</label>
-                                </div>
-                          @if ($errors->has('gender'))
-                                          <span class="help-block">
-                                            <strong class="text-danger"><small>{{ $errors->first('gender') }}</small></strong>
-                                          </span>
-                                      @endif
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label class="text-xs"  for="address">Adresa</label>
-                <input  id="address" name="Adresa"  required type="text" value="{{old('Adresa')}}" class="form-control form-control-user @error('Adresa') is-invalid @enderror" placeholder="Adresa">
-                        @if ($errors->has('Adresa'))
-                                          <span class="help-block">
-                                              <strong class="text-danger"><small>{{ $errors->first('Adresa') }}</small></strong>
-                                          </span>
-                                      @endif
-                      </div>
-                <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label class="text-xs"  for="residence">Vendbanimi</label>
-                          <input id="residence" name="Vendbanimi"  value="{{old('Vendbanimi')}}" required type="text" class="form-control form-control-user @error('Vendbanimi') is-invalid @enderror"  placeholder="Vendbanimi">
-
-                          @if ($errors->has('Vendbanimi'))
-                                          <span class="help-block">
-                                            <strong class="text-danger"><small>{{ $errors->first('Vendbanimi') }}</small></strong>
-                                          </span>
-                                      @endif
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="text-xs"  for="city">Qyteti</label>
-                        <input id="city" name="Qyteti" value="{{old('Qyteti')}}" required type="text" class="form-control form-control-user @error('Qyteti') is-invalid @enderror" placeholder="Qyteti">
-                                @if ($errors->has('Qyteti'))
-                                                <span class="help-block">
-                                                    <strong class="text-danger"><small>{{ $errors->first('Qyteti') }}</small></strong>
-                                                </span>
-                                            @endif
-                              </div>
+                        @if ($errors->has('Emri'))
+                            <span class="help-block">
+                                <strong class="text-danger"><small>{{ $errors->first('Emri') }}</small></strong>
+                            </span>
+                        @endif
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label class="text-xs"  for="phone">Telefoni</label>
+                    <label class="text-xs"  for="phone">Telefoni</label>
                     <input id="phone" name="Telefoni" value="{{old('Telefoni')}}" required type="text" class="form-control form-control-user @error('Telefoni') is-invalid @enderror"  placeholder="Numri i telefonit">
                         @if ($errors->has('Telefoni'))
                             <span class="help-block">
                                 <strong class="text-danger"><small>{{ $errors->first('Telefoni') }}</small></strong>
                             </span>
                         @endif
-                    </div>
-                    <div class="col-sm-6">
-                        <label class="text-xs"  for="email">E-mail</label>
-                        <input id="email" name="email"  type="email" class="form-control form-control-user" placeholder="Email">
-                        @if ($errors->has('email'))
+                </div>
+                <div class="form-group row">
+                    <label class="text-xs"  for="info">Info</label>
+                    <input id="info" name="info"  type="text" value="{{old('info')}}" class="form-control form-control-user  @error('info') is-invalid @enderror"   placeholder="Info">
+                        @if ($errors->has('info'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
+                                <strong class="text-danger"><small>{{ $errors->first('info') }}</small></strong>
                             </span>
                         @endif
-                    </div>
                 </div>
                 <div class="form-group">
                         <a class="btn btn-circle btn-secondary" href="{{ url()->previous() }}" ><i class="fa fa-chevron-left"></i></a>

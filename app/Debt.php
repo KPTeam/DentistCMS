@@ -9,7 +9,7 @@ class Debt extends Model
 {
     use LogsActivity;
 
-    protected static $logAttributes = ['pacient.first_name','pacient.last_name', 'pacient.personal_number', 'deadline','value','created_at'];
+    protected static $logAttributes = ['pacient.name','pacient.phone', 'pacient.info', 'deadline','value','created_at'];
 
     public function pacient()
     {

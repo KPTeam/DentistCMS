@@ -30,7 +30,7 @@
                         </button>
                       </div>
                 </div>
-                
+
                 <div class="modal fade" id="pacientModal" tabindex="-1" role="dialog" aria-labelledby="pacientModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -41,9 +41,8 @@
                           <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                             <thead class="bg-dark text-light">
                               <tr>
-                                <th scope="col">Emri</th>
-                                <th scope="col">Mbiemri</th>
-                                <th scope="col">Nr Personal</th>
+                                <th scope="col">Emri Mbiemri</th>
+                                <th scope="col">Nr Tel</th>
                                 <th scope="col">Shto</th>
                               </tr>
                             </thead>
@@ -81,7 +80,7 @@
               </span>
           @endif
                 </div>
-  
+
                 <div class="form-group mb-3">
                     <label class="text-xs" for="services">Shërbimet</label>
                     <div class="input-group mb-3">
@@ -134,8 +133,8 @@
                       <strong class="text-danger"><small>{{ $errors->first('Sherbimet') }}</small></strong>
                     </span>
   @endif
-               
-              </div>  
+
+              </div>
               <div class="form-group">
                 <label class="text-xs"  for="photo">Grafia</label>
               <input id="logo" type="file" class="form-control @error('Foto') is-invalid @enderror" name="Foto" id="photo" placeholder="Fotoja e faturës" >

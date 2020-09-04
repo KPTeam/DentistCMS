@@ -59,7 +59,7 @@ class HomeController extends Controller
         $pacients = Pacient::orderBy('id', 'ASC')->get();
         foreach($pacients as $pacient)
         {
-            $list[]= "$pacient->first_name $pacient->last_name $pacient->personal_number,$pacient->id";
+            $list[]= "$pacient->name,$pacient->id";
         }
         return response()->json($list);
     }
@@ -72,7 +72,7 @@ class HomeController extends Controller
 
     public function calendar()
     {
-        $users = User::where('role_id','=',0)->orWhere('role_id','=',1)->get();
+        $users = User::all();
         return view('calendar')->with('users',$users);
 
     }
@@ -105,8 +105,26 @@ class HomeController extends Controller
     public function company()
     {
         $company = DB::table('company')->first();
-        return view('company.company')->with('company', $company);
-
+        if($company == null)
+        {
+            $companyNew  = DB::table('company')->insert(['name' =>  'DentistCMS',
+                        'logo' => 'no-logo.png',
+                        'theme' => false,
+                        'nr_fiscal' =>'123456789',
+                        'nr_business' => '123456789',
+                        'nr_tax' =>'123456789',
+                        'tvsh' =>'18',
+                        'phone' => '123456789',
+                        'adress' =>'Rruga',
+                        'email' => 'dentistCMS@gmail.com',
+                        'city' => 'Prizren',
+                        'account_1' =>'1234567890123456',
+                        'account_2' => '1234567890123456',
+                        'account_3' => '1234567890123456']);
+            return redirect('/company');
+        }
+        else
+            return view('company.company')->with('company', $company);
     }
 
     public function logs()
@@ -216,7 +234,7 @@ class HomeController extends Controller
                                     @elseif($subject_type == "App\Vizit")  Vizit
                                     @else Njoftim @endif')
         ->editColumn ('Pershkrimi','@if($description == "logged_in") Kyqja @elseif($description == "created") Shtuar @elseif($description == "updated") Ndryshuar @else Fshirë @endif')
-        ->editColumn ('Perdoruesi','<a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$causer_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($causer_id)}}')
+        ->editColumn ('Perdoruesi','@if($causer_id != null)<a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$causer_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($causer_id)}} @else Ska @endif')
         ->editColumn ('Data','{{\Carbon\Carbon::parse($created_at)->format("d/m/Y H:i:s")}}')
         ->addColumn('Info','<button type="button" class="btn btn-secondary btn-circle" data-toggle="modal" data-target="#exampleModal{{$id}}">
         <i class="fa fa-eye"></i>
@@ -238,7 +256,7 @@ class HomeController extends Controller
             <tbody>
                 <tr>
                     <th>Pacienti:</th>
-                    <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                    <td scope="row">{{$properties["attributes"]["pacient.name"]}} </td>
                 </tr>
                 <tr>
                     <th>Mjeku:</th>
@@ -284,7 +302,7 @@ class HomeController extends Controller
             <tbody>
             <tr>
                 <th>Pacienti:</th>
-                <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                <td scope="row">{{$properties["attributes"]["pacient.name"]}}</td>
             </tr>
             <tr>
                 <th>Vlera:</th>
@@ -304,48 +322,16 @@ class HomeController extends Controller
             <table class="table table-stripped">
             <tbody>
                 <tr>
-                    <th>Emri:</th>
-                    <td scope="row">{{$properties["attributes"]["first_name"]}}</td>
-                </tr>
-                <tr>
-                    <th>Emri i prindit:</th>
-                    <td scope="row">{{$properties["attributes"]["fathers_name"]}}</td>
-                </tr>
-                <tr>
-                    <th>Mbiemri:</th>
-                    <td scope="row">{{$properties["attributes"]["last_name"]}}</td>
-                </tr>
-                <tr>
-                    <th>Numri Personal:</th>
-                    <td scope="row">{{$properties["attributes"]["personal_number"]}}</td>
-                </tr>
-                <tr>
-                    <th>Gjinia:</th>
-                    <td scope="row">{{$properties["attributes"]["gender"]}}</td>
-                </tr>
-                <tr>
-                    <th>Data e lindjes:</th>
-                    <td scope="row">{{$properties["attributes"]["date_of_birth"]}}</td>
-                </tr>
-                <tr>
-                    <th>Adresa:</th>
-                    <td scope="row">{{$properties["attributes"]["address"]}}</td>
-                </tr>
-                <tr>
-                    <th>Vendbanimi:</th>
-                    <td scope="row">{{$properties["attributes"]["residence"]}}</td>
-                </tr>
-                <tr>
-                    <th>Qyteti:</th>
-                    <td scope="row">{{$properties["attributes"]["city"]}}</td>
+                    <th>Emri Mbiemri:</th>
+                    <td scope="row">{{$properties["attributes"]["name"]}}</td>
                 </tr>
                 <tr>
                     <th>Telefoni:</th>
                     <td scope="row">{{$properties["attributes"]["phone"]}}</td>
                 </tr>
                 <tr>
-                    <th>Email:</th>
-                    <td scope="row">{{$properties["attributes"]["email"]}}</td>
+                    <th>Info:</th>
+                    <td scope="row">{{$properties["attributes"]["info"]}}</td>
                 </tr>
             </tbody>
             </table>
@@ -354,7 +340,7 @@ class HomeController extends Controller
             <tbody>
                 <tr>
                     <th>Pacienti:</th>
-                    <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                    <td scope="row">{{$properties["attributes"]["pacient.name"]}} </td>
                 </tr>
                 <tr>
                     <th>Vlera:</th>
@@ -382,7 +368,7 @@ class HomeController extends Controller
             <tbody>
                 <tr>
                     <th>Pacienti:</th>
-                    <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                    <td scope="row">{{$properties["attributes"]["pacient.name"]}}</td>
                 </tr>
                 <tr>
                     <th>Mjeku:</th>
@@ -444,7 +430,7 @@ class HomeController extends Controller
                 </tr>
                 <tr>
                     <th>Data:</th>
-                    <td scope="row">{{$service->created_at}} </td>
+                    <td scope="row">{{$properties["attributes"]["created_at"]}} </td>
                 </tr>
             </tbody>
             </table>
@@ -453,7 +439,7 @@ class HomeController extends Controller
             <tbody>
                 <tr>
                     <th>Pacienti:</th>
-                    <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                    <td scope="row">{{$properties["attributes"]["pacient.name"]}} </td>
                 </tr>
                 <tr>
                     <th>Data e fillimit</th>
@@ -510,7 +496,7 @@ class HomeController extends Controller
             <tbody>
                 <tr>
                     <th>Pacienti:</th>
-                    <td scope="row">{{$properties["attributes"]["pacient.first_name"]}} {{$properties["attributes"]["pacient.last_name"]}} {{$properties["attributes"]["pacient.personal_number"]}}</td>
+                    <td scope="row">{{$properties["attributes"]["pacient.name"]}}</td>
                 </tr>
                 <tr>
                     <th>Dentisti:</th>

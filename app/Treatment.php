@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Pacient;
-use App\Treatment;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Treatment extends Model
@@ -12,7 +11,7 @@ class Treatment extends Model
 
     use LogsActivity;
 
-    protected static $logAttributes = ['pacient.first_name','pacient.last_name', 'pacient.personal_number','starting_date','duration','created_at'];
+    protected static $logAttributes = ['pacient.name','pacient.phone', 'pacient.nr','starting_date','duration','created_at'];
 
     public function pacient()
     {
@@ -29,7 +28,7 @@ class Treatment extends Model
     {
         $treatment = Treatment::find($id);
         $pacient = Pacient::find($treatment->pacient_id);
-        return $pacient->first_name.' '.$pacient->last_name.' ('.$treatment->starting_date.' | '.$treatment->duration.')';
+        return $pacient->name.' ('.$treatment->starting_date.' | '.$treatment->duration.')';
     }
 
 }

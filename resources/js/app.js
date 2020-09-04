@@ -94,9 +94,8 @@ function jQuery()
         "serverSide": true, "stateSave": true,
         "ajax":"/searchPacient",
         "columns": [
-          {"data":"first_name"},
-          {"data":"last_name"},
-          {"data":"personal_number"},
+          {"data":"name"},
+          {"data":"phone"},
           {"data": "Shto", "bSearchable": false}
         ],
         "language": {
@@ -238,12 +237,9 @@ function jQuery()
         "serverSide": true, "stateSave": true,
         "ajax":"/pacientDatatable",
         "columns": [
-          {"data":"first_name"},
-          {"data":"last_name"},
-          {"data":"personal_number"},
-          {"data":"date_of_birth"},
-          {"data":"address"},
-          {"data":"residence"},
+          {"data":"name"},
+          {"data":"phone"},
+          {"data":"info"},
           {"data": "Menaxhimi", "bSearchable": false}
         ],
         "language": {

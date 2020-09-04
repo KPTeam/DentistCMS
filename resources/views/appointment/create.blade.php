@@ -40,9 +40,8 @@
                               <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                                 <thead class="bg-dark text-light">
                                   <tr>
-                                    <th scope="col">Emri</th>
-                                    <th scope="col">Mbiemri</th>
-                                    <th scope="col">Nr Personal</th>
+                                    <th scope="col">Emri Mbiemri</th>
+                                    <th scope="col">Nr Tel</th>
                                     <th scope="col">Shto</th>
                                   </tr>
                                 </thead>
@@ -94,14 +93,14 @@
                                     <tbody>
                                     </tbody>
                                   </table>
-                                    
+
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbylle</button>
                                 </div>
                               </div>
                             </div>
-                          </div> 
+                          </div>
                         @if ($errors->has('user-id'))
                                           <span class="help-block">
                                             <strong class="text-danger"><small>{{ $errors->first('user-id') }}</small></strong>
@@ -117,10 +116,10 @@
                                           </span>
                                       @endif
                 </div>
-                
+
                 <div class="form-group">
                         <label class="text-xs"  for="time">Ora e Terminit</label>
-                        <select class="form-control form-control-user @error('time') is-invalid @enderror" id="time" name="time" placeholder="Ora"> 
+                        <select class="form-control form-control-user @error('time') is-invalid @enderror" id="time" name="time" placeholder="Ora">
                           <option>08:00</option>
                           <option>08:30</option>
                           <option>09:00</option>
@@ -163,5 +162,5 @@
         </div>
       </div>
     </div>
- 
+
 @endsection

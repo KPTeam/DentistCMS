@@ -14,8 +14,8 @@
         <a href="/pacient/create" class="btn btn-circle btn-success float-right"><i class="fa fa-plus"></i></a>
       </div>
   </div>
-  
-  
+
+
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -26,17 +26,14 @@
         <table class="table table-bordered" id="PacientdataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Emri</th>
-              <th>Mbiemri</th>
-              <th>Numri Personal</th>
-              <th>Data e lindjes</th>
-              <th>Adresa</th>
-              <th>Vendbanimi</th>
+              <th>Emri Mbiemri</th>
+              <th>Nr Tel</th>
+              <th>Info</th>
               <th>Menaxhimi</th>
             </tr>
           </thead>
           <tbody>
-           
+
           </tbody>
         </table>
       </div>

@@ -33,19 +33,19 @@
                                     <input name="_method" type="hidden" value="DELETE">
                                     <button type="submit" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <form method="GET" action="{{ url('fatura') }}" class="d-inline form-inline">
                 <input id="id" hidden name="id" value="{{$payment->id}}"/>
               <button type="submit" class="btn btn-circle btn-success "><i class="fa fa-print"></i></button>
               </form>
             </div>
         </div>
-        
-        
+
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4 p-5">
             <table cellspacing="0" border="0">
@@ -79,16 +79,16 @@
                 <tr>
                     <td height="26" align="left" valign=bottom><font face="Times New Roman" size=4><br></font></td>
                     <td align="left" valign=bottom><font face="Arial" size=4>Nr. regj: 810982464</font></td>
-                    <td colspan=2 rowspan=2 align="center" valign=bottom><font face="Times New Roman"><u>{{$pacient->first_name}} {{$pacient->fathers_name}} {{$pacient->last_name}}</ul></font></td>
+                    <td colspan=2 rowspan=2 align="center" valign=bottom><font face="Times New Roman"><u>{{$pacient->name}}</ul></font></td>
                     </tr>
-                <tr>	
+                <tr>
                     <td height="18" align="left" valign=bottom><font face="Arial"><br></font></td>
                     <td align="left" valign=bottom><font face="Arial"><br></font></td>
                     </tr>
                 <tr>
                     <td height="26" align="left" valign=bottom><font face="Arial"><br></font></td>
                 <td align="left" valign=bottom><font face="Times New Roman" size=4>Fatura nr. <u>{{$payment->id}}</ul></font></td>
-                    <td colspan=2 align="center" valign=bottom><font face="Times New Roman"><u>{{$pacient->personal_number}} {{$pacient->residence}} {{$pacient->city}}</ul></font></td>
+                    <td colspan=2 align="center" valign=bottom><font face="Times New Roman"><u>{{$pacient->phone}}</ul></font></td>
                     </tr>
                 <tr>
                     <td height="18" align="left" valign=bottom><font face="Times New Roman"><br></font></td>
@@ -115,7 +115,7 @@
                     <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=4>V  L  E  R  A</font></td>
                     <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="left" valign=middle><font face="Times New Roman" size=4><br></font></td>
                     <td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" align="center" valign=middle><font face="Times New Roman" size=4><br>{{$payment->value}} €</font></td>
-                </tr>  
+                </tr>
                 <tr>
                     <td height="18" align="left" valign=bottom><font face="Times New Roman"><br></font></td>
                     <td align="left" valign=bottom><font face="Times New Roman"><br></font></td>

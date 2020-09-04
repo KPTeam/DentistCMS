@@ -29,7 +29,7 @@
                       </button>
                     </div>
               </div>
-              
+
               <div class="modal fade" id="pacientModal" tabindex="-1" role="dialog" aria-labelledby="pacientModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -40,9 +40,8 @@
                         <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                           <thead class="bg-dark text-light">
                             <tr>
-                              <th scope="col">Emri</th>
-                              <th scope="col">Mbiemri</th>
-                              <th scope="col">Nr Personal</th>
+                              <th scope="col">Emri Mbiemri</th>
+                              <th scope="col">Nr Tel</th>
                               <th scope="col">Shto</th>
                             </tr>
                           </thead>
@@ -128,7 +127,7 @@
                                   <strong class="text-danger"><small>{{ $errors->first('Sherbimet') }}</small></strong>
                                 </span>
               @endif
-             
+
             </div>
 
             <div class="form-group">
@@ -140,8 +139,8 @@
                                         </span>
                                     @endif
               </div>
-              
-              
+
+
             <div class="form-group">
               <a class="btn btn-circle btn-secondary" href="{{ url()->previous() }}" ><i class="fa fa-chevron-left"></i></a>
                 <button type="submit"  class="btn btn-circle btn-primary float-right"><i class="fa fa-save"></i></button>

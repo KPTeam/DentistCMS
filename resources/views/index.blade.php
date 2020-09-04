@@ -10,6 +10,7 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">Kryefaqja</h1>
             <div class="row">
+                <a href="/appointment/create" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mr-2"><i class="fas fa-user fa-sm text-white-50"></i> Shto Pacient</a>
             <a href="/appointment/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-2"><i class="fas fa-calendar fa-sm text-white-50"></i> Krijo Termin</a>
             <a href="/payment/create" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-credit-card fa-sm text-white-50"></i> Shto Pagesë</a>
             </div>
@@ -136,19 +137,18 @@
                 <div class="card-body py-0 scroll">
                     <table class="table  table-stripped">
                         <thead>
-                          <th>Emri</th>
-                          <th>Mbiemri</th>
-                          <th>Dt lindjes</th>
-                          <th>Vendbanimi</th>
+                          <th>Emri Mbiemri</th>
+                          <th>Telefoni</th>
+                          <th>Info</th>
                           <th>Detajet</th>
                         </thead>
                         <tbody>
                             @if(count($pacients) > 0)
                             @foreach($pacients as $pacient)
                           <tr>
-                            <td>{{$pacient->first_name}}</td>
-                            <td>{{$pacient->last_name}}</td>
-                            <td>{{$pacient->date_of_birth}}</td>
+                            <td>{{$pacient->name}}</td>
+                            <td>{{$pacient->phone}}</td>
+                            <td>{{$pacient->info}}</td>
                             <td>{{$pacient->residence}}</td>
                             <td><a href="/pacient/{{$pacient->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
 

@@ -40,9 +40,8 @@
                               <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                                 <thead class="bg-dark text-light">
                                   <tr>
-                                    <th scope="col">Emri</th>
-                                    <th scope="col">Mbiemri</th>
-                                    <th scope="col">Nr Personal</th>
+                                    <th scope="col">Emri Mbiemri</th>
+                                    <th scope="col">Nr Tel</th>
                                     <th scope="col">Shto</th>
                                   </tr>
                                 </thead>
@@ -72,7 +71,7 @@
                                     </span>
                                 @endif
           </div>
-          <div class="form-group " id="debt-deadline"> 
+          <div class="form-group " id="debt-deadline">
             <label class="text-xs"  for="deadline">Afati</label>
             <input value="{{old('Afati')}}"  type="date" class="form-control form-control-user @error('Vlera') is-invalid @enderror" required="" name="Afati" id="deadline" min="{{date('Y-m-d')}}" placeholder="Afati">
             @if ($errors->has('Afati'))
@@ -81,7 +80,7 @@
                               </span>
                           @endif
     </div>
-                
+
                 <div class="form-group">
                 <a class="btn btn-circle btn-secondary" href="{{ url()->previous() }}" ><i class="fa fa-chevron-left"></i></a>
                   <button type="submit"  class="btn btn-circle btn-primary float-right"><i class="fa fa-save"></i></button>
@@ -93,5 +92,5 @@
         </div>
       </div>
     </div>
- 
+
 @endsection

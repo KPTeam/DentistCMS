@@ -55,7 +55,6 @@ class PacientController extends Controller
                 </div>
             </div>
         </div> ')
-
         ->rawColumns(['Menaxhimi'])
         ->make(true);
         return $table;
@@ -88,28 +87,15 @@ class PacientController extends Controller
         else
         {
             $this->validate($request,[
-                'Emri'=> 'required|alpha|min:3',
-                'Emri_Prindit'=> 'required|alpha|min:3',
-                'Mbiemri'=> 'required|alpha|min:3',
-                'Numri_Personal' => 'required|digits:10|numeric',
-                'Data_e_lindjes' => 'required|date',
-                'Adresa'=> 'required|min:2',
-                'Vendbanimi'=> 'required|min:2',
-                'Qyteti'=> 'required|min:2',
-                'Telefoni'=> 'required|min:9|numeric',
+                'Emri'=> 'required|min:3',
+                'Telefoni'=> 'required',
             ]);
             $pacient = new Pacient;
-            $pacient->first_name = $request->input('Emri');
-            $pacient->fathers_name = $request->input('Emri_Prindit');
-            $pacient->last_name = $request->input('Mbiemri');
-            $pacient->personal_number = $request->input('Numri_Personal');
-            $pacient->date_of_birth = $request->input('Data_e_lindjes');
-            $pacient->gender = $request->input('gender');
-            $pacient->address = $request->input('Adresa');
-            $pacient->residence = $request->input('Vendbanimi');
-            $pacient->city = $request->input('Qyteti');
+            $pacient->name = $request->input('Emri');
             $pacient->phone = $request->input('Telefoni');
-            $pacient->email = $request->input('email');
+            if ($request->has('info')) {
+                $pacient->info = $request->input('info');
+            }
             $pacient->save();
             return redirect('/pacient')->with('success',__('messages.patient-add'));
         }
@@ -168,28 +154,15 @@ class PacientController extends Controller
         else
         {
             $this->validate($request,[
-                'Emri'=> 'required|alpha|min:3',
-                'Emri_Prindit'=> 'required|alpha|min:3',
-                'Mbiemri'=> 'required|alpha|min:3',
-                'Numri_Personal' => 'required|digits:10|numeric',
-                'Data_e_lindjes' => 'required|date',
-                'Adresa'=> 'required|min:2',
-                'Vendbanimi'=> 'required|min:2',
-                'Qyteti'=> 'required|min:2',
-                'Telefoni'=> 'required|min:9|numeric',
+                'Emri'=> 'required|min:3',
+                'Telefoni'=> 'required',
             ]);
             $pacient =  Pacient::find($id);
-            $pacient->first_name = $request->input('Emri');
-            $pacient->fathers_name = $request->input('Emri_Prindit');
-            $pacient->last_name = $request->input('Mbiemri');
-            $pacient->personal_number = $request->input('Numri_Personal');
-            $pacient->date_of_birth = $request->input('Data_e_lindjes');
-            $pacient->gender = $request->input('gender');
-            $pacient->address = $request->input('Adresa');
-            $pacient->residence = $request->input('Vendbanimi');
-            $pacient->city = $request->input('Qyteti');
+            $pacient->name = $request->input('Emri');
             $pacient->phone = $request->input('Telefoni');
-            $pacient->email = $request->input('email');
+            if ($request->has('info')) {
+                $pacient->info = $request->input('info');
+            }
             $pacient->save();
             return redirect('/pacient')->with('success',__('messages.patient-edit'));
         }

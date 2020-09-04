@@ -17,51 +17,17 @@
                 <table class="table table-striped ">
                         <tbody>
                             <tr>
-                                <th>Emri:</th>
-                                <td scope="row">{{$pacient->first_name}}</td>
+                                <th>Emri Mbiemri:</th>
+                                <td scope="row">{{$pacient->name}}</td>
                             </tr>
                             <tr>
-                                <th>Emri i prindit:</th>
-                                <td scope="row">{{$pacient->fathers_name}}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Mbiemri:</th>
-                                <td scope="row">{{$pacient->last_name}}</td>
+                                <th>Telefoni:</th>
+                                <td scope="row">{{$pacient->phone}} </td>
                             </tr>
                             <tr>
-                                    <th>Numri Personal:</th>
-                                    <td scope="row">{{$pacient->personal_number}}</td>
-                                </tr>
-                            <tr>
-                                <th>Gjinia:</th>
-                                <td scope="row">{{$pacient->gender}} </td>
+                                <th>Info:</th>
+                                <td scope="row">{{$pacient->info}} </td>
                             </tr>
-                            <tr>
-                                    <th>Data e lindjes:</th>
-                                    <td scope="row">{{$pacient->date_of_birth}}</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Adresa:</th>
-                                    <td scope="row">{{$pacient->address}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Vendbanimi:</th>
-                                    <td scope="row">{{$pacient->residence}} </td>
-                                </tr>
-                                <tr>
-                                        <th>Qyteti:</th>
-                                        <td scope="row">{{$pacient->city}} </td>
-                                    </tr>
-                                    <tr>
-                                            <th>Telefoni:</th>
-                                            <td scope="row">{{$pacient->phone}} </td>
-                                        </tr>
-                                        <tr>
-                                                <th>Email:</th>
-                                                <td scope="row">{{$pacient->email}} </td>
-                                            </tr>
                         </tbody>
                     </table>
                 <hr>

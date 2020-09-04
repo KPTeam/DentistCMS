@@ -25,7 +25,7 @@ class SearchController extends Controller
         ->orWhere('fathers_name','LIKE','%'.$request->search."%")
         ->orWhere('phone','LIKE','%'.$request->search."%")
         ->orWhere('email','LIKE','%'.$request->search."%")
-        ->paginate(30);	
+        ->paginate(30);
         return view('search')->with('pacients',$pacients)->with('keyword',$request->search);
     }
 
@@ -34,7 +34,7 @@ class SearchController extends Controller
     {
         $pacients = Pacient::all();
         $table = DataTables::of($pacients)
-        ->addColumn('Shto' ,'<a class="btn btn-circle btn-secondary btn-sm"    data-dismiss="modal" onclick="document.getElementById(\'pacient\').value = \'{{$first_name}} {{$last_name}} {{$personal_number}}\';
+        ->addColumn('Shto' ,'<a class="btn btn-circle btn-secondary btn-sm"    data-dismiss="modal" onclick="document.getElementById(\'pacient\').value = \'{{$name}}\';
         document.getElementById(\'pacient-id\').value = \'{{$id}}\';" ><i class="fa text-light fa-arrow-right"></i></a>')
         ->rawColumns(['Shto'])
         ->make(true);
@@ -50,7 +50,7 @@ class SearchController extends Controller
         ->rawColumns(['Shto'])
         ->make(true);
         return $table;
-       
+
     }
 
 
@@ -59,12 +59,12 @@ class SearchController extends Controller
         $services = Services::all();
         $table = DataTables::of($services)
         ->addColumn('Shto' ,'<a class="btn btn-circle btn-secondary btn-sm"   data-dismiss="modal" onclick="
-        var sel = document.getElementById(\'services\');    
+        var sel = document.getElementById(\'services\');
         var opt = document.createElement(\'option\');
         var inp = document.getElementById(\'service-list\');
         opt.appendChild( document.createTextNode(\'{{$name}}\') );
         opt.value = \'{{$id}}\';
-        sel.appendChild(opt); 
+        sel.appendChild(opt);
         inp.value += \'{{$id}}\' +\',\';
         " ><i class="fa text-light fa-arrow-right"></i></a>')
         ->rawColumns(['Shto'])
@@ -82,10 +82,10 @@ class SearchController extends Controller
         " ><i class="fa text-light fa-arrow-right"></i></a>
         ')
         ->addColumn('quantity' ,'
-        <input class="w-50" type="text" id="quantity-{{$id}}" name="quantity" value="1">    
+        <input class="w-50" type="text" id="quantity-{{$id}}" name="quantity" value="1">
         ')
         ->addColumn('tooth' ,'
-            <input class="w-50" type="text" id="tooth-{{$id}}" name="tooth" value="0">    
+            <input class="w-50" type="text" id="tooth-{{$id}}" name="tooth" value="0">
         ')
         ->editColumn('discount',' <input class="w-50" type="text" id="discount-{{$id}}" name="discount" value="{{$discount}}"> %')
         ->rawColumns(['Shto','quantity','tooth','discount'])
@@ -108,5 +108,5 @@ class SearchController extends Controller
     }
 
 
-    
+
 }

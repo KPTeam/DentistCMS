@@ -9,7 +9,7 @@ class Appointment extends Model
 {
     use LogsActivity;
 
-    protected static $logAttributes = ['time_of_appointment', 'date_of_appointment','pacient.first_name','pacient.last_name', 'pacient.personal_number','user.name'];
+    protected static $logAttributes = ['time_of_appointment', 'date_of_appointment','pacient.name','pacient.phone', 'pacient.info','user.name'];
 
     public function user()
     {

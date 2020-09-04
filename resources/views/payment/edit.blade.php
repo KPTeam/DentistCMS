@@ -2,9 +2,9 @@
 @section('title','Ndrysho Pagesën')
 @section('payment','active')
 @section('scripts')
-function deleteCart(id) 
+function deleteCart(id)
   {
-   
+
     $.ajax({
       type:'POST',
       url:'/deleteCart',
@@ -15,8 +15,8 @@ function deleteCart(id)
       }
     });
   }
-  
-  function addToCart(id, name,price) 
+
+  function addToCart(id, name,price)
   {
     var  discount= $('#discount-'+id).val();
     var tooth = $('#tooth-'+id).val();
@@ -37,7 +37,7 @@ function deleteCart(id)
         $("#payment-table").load( "/payment/create #payment-table");
       }
     });
-  } 
+  }
 @endsection
 @section('content')
 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -76,9 +76,8 @@ function deleteCart(id)
                       <table class="table table-bordered table-hover"  width="100%" cellspacing="0" id="searchPacient">
                         <thead class="bg-dark text-light">
                           <tr>
-                            <th scope="col">Emri</th>
-                            <th scope="col">Mbiemri</th>
-                            <th scope="col">Nr Personal</th>
+                            <th scope="col">Emri Mbiemri</th>
+                            <th scope="col">Nr Tel</th>
                             <th scope="col">Shto</th>
                           </tr>
                         </thead>
@@ -114,7 +113,7 @@ function deleteCart(id)
                   <th scope="col" class="border-0 bg-light">
                     <div class="py-2 text-uppercase">Zbritja</div>
                   </th>
-                 
+
                   <th scope="col" class="border-0 bg-light">
                     <div class="py-2 text-uppercase">Qmimi</div>
                   </th>
@@ -126,7 +125,7 @@ function deleteCart(id)
                   </th>
                 </tr>
               </thead>
-              <tbody> 
+              <tbody>
                 @foreach($items as $cart)
                 <tr>
                   <th scope="row" class="border-0">
@@ -143,11 +142,11 @@ function deleteCart(id)
                   <td class="border-0 align-middle"><strong>{{$cart->price}} €</strong></td>
                   <td class="border-0 align-middle"><strong>{{($cart->price * $cart->quantity) - ((($cart->price * $cart->quantity) / 100 )* $cart->attributes->discount)}} €</strong></td>
                   <td class="border-0 align-middle">
-  
+
                     <button type="button" onclick="deleteCart({{$cart->id}})" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
                   </td>
                 </tr>
-              
+
                 @endforeach
                 <tr>
                   <td>  <button class="btn btn-outline-primary btn-circle " type="button"  data-toggle="modal" data-target="#serviceModalPayment"><i class="fa fa-plus"></i> </button></td>
@@ -160,9 +159,9 @@ function deleteCart(id)
                 </tr>
               </tbody>
             </table>
-           
+
             <tbody>
-              
+
             </tbody>
           </table>
         </div>

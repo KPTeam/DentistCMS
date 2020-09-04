@@ -10,7 +10,7 @@ class Pacient extends Model
 {
     use LogsActivity;
 
-    protected static $logAttributes = ['first_name', 'fathers_name','last_name','personal_number', 'gender','date_of_birth','address','residence', 'city','phone','email'];
+    protected static $logAttributes = ['name','phone','info'];
 
 
     public function visit()
@@ -46,18 +46,12 @@ class Pacient extends Model
     public static function getPacient($id)
     {
         $pacient = Pacient::find($id);
-        return $pacient->first_name. ' '.$pacient->last_name. ' '.$pacient->personal_number ;
+        return $pacient->name;
     }
 
     public static function getPacientName($id)
     {
         $pacient = Pacient::find($id);
-        return $pacient->first_name. ' '.$pacient->last_name;
-    }
-
-    public static function getPacientID($id)
-    {
-        $pacient = Pacient::find($id);
-        return ''.$pacient->personal_number;
+        return $pacient->name;
     }
 }

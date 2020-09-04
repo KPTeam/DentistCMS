@@ -13,8 +13,8 @@
       <div class="col-sm-6 ">
         </div>
     </div>
-    
-    
+
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
@@ -25,12 +25,9 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                  <th>Emri</th>
-                  <th>Mbiemri</th>
-                  <th>Numri Personal</th>
-                  <th>Data e lindjes</th>
-                  <th>Adresa</th>
-                  <th>Vendbanimi</th>
+                  <th>Emri Mbiemri</th>
+                  <th>Nr Tel</th>
+                  <th>Info</th>
                   <th>Menaxhimi</th>
               </tr>
             </thead>
@@ -38,16 +35,13 @@
               @if(count($pacients) > 0)
               @foreach($pacients as $pacient)
               <tr>
-                <td>{{$pacient->first_name}}</td>
-                <td>{{$pacient->last_name}}</td>
-                <td>{{$pacient->personal_number}}</td>
-                <td>{{$pacient->date_of_birth}}</td>
-                <td>{{$pacient->address}}</td>
-                <td>{{$pacient->residence}}</td>
+                <td>{{$pacient->name}}</td>
+                <td>{{$pacient->phone}}</td>
+                <td>{{$pacient->info}}</td>
                 <td>
                   <a href="/pacient/{{$pacient->id}}" class="btn btn-circle btn-secondary"><i class="fa fa-eye"></i></a>
                 </td>
-                
+
               </tr>
               @endforeach
               @else
@@ -61,6 +55,6 @@
         </div>
       </div>
     </div>
-  
+
   </div>
 @endsection
