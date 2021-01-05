@@ -7,22 +7,22 @@
           <!-- Nested Row within Card Body -->
           <div class="row">
             <div class="col-lg-5 m-auto d-flex justify-content-center ">
-            <img src="{{App\User::getLogo()}}" class="img-fluid" />
+            <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
             </div>
             <div class="col-lg-7">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e terminit</h1>
+                  <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e terminit</h1>
                 </div>
                 <table class="table table-striped ">
                         <tbody>
                             <tr>
                                 <th>Pacienti:</th>
-                                <td scope="row"><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$appointment->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($appointment->pacient_id)}}</td>
+                                <td scope="row"><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$appointment->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($appointment->pacient_id)}}</td>
                             </tr>
                             <tr>
                                 <th>Dentisti:</th>
-                                <td scope="row"><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$appointment->user_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($appointment->user_id)}}</td>
+                                <td scope="row"><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$appointment->user_id}}"><i class="fa fa-user-md"></i></a> {{App\Models\User::getUser($appointment->user_id)}}</td>
                             </tr>
                            
                             <tr>

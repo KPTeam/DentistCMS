@@ -7,12 +7,12 @@
         <!-- Nested Row within Card Body -->
         <div class="row">
             <div class="col-lg-5 m-auto d-flex justify-content-center ">
-                <img src="{{App\User::getLogo()}}" class="img-fluid" />
+                <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
             </div>
         <div class="col-lg-7">
             <div class="p-5">
                 <div class="text-center">
-                    <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e pacientit</h1>
+                    <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e pacientit</h1>
                 </div>
                 <table class="table table-striped ">
                         <tbody>
@@ -106,7 +106,7 @@
         </div>
         <div class="card-body">
                 <div class="text-center">
-                        <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Historiku</h1>
+                        <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Historiku</h1>
                     </div>
                 <table class="table table-bordered"  width="100%" cellspacing="0">
                     <h3>Terminet</h3> <hr>
@@ -123,8 +123,8 @@
                           @if(count($appointments)>0)
                           @foreach($appointments as $appointment)
                             <tr>
-                            <td>{{App\Pacient::getPacient($appointment->pacient_id)}}</td>
-                            <td>{{App\User::getUser($appointment->user_id)}}</td>
+                            <td>{{App\Models\Pacient::getPacient($appointment->pacient_id)}}</td>
+                            <td>{{App\Models\User::getUser($appointment->user_id)}}</td>
                             <td>{{$appointment->date_of_appointment}}</td>
                             <td>{{$appointment->time_of_appointment}}</td>
                             <td><a class="btn btn-circle btn-secondary btn-sm" href="/appointment/{{$appointment->id}}"><i class="fa fa-eye"></i></a></td>
@@ -152,8 +152,8 @@
               @if(count($visits)>0)
               @foreach($visits as $visit)
                 <tr>
-                <td>{{App\Pacient::getPacient($visit->pacient_id)}}</td>
-                <td>{{App\User::getUser($visit->user_id)}}</td>
+                <td>{{App\Models\Pacient::getPacient($visit->pacient_id)}}</td>
+                <td>{{App\Models\User::getUser($visit->user_id)}}</td>
                 <td>{{$visit->date_of_visit}}</td>
                 <td>{{$visit->time_of_visit}}</td>
                 <td><a class="btn btn-circle btn-secondary btn-sm" href="/visit/{{$visit->id}}"><i class="fa fa-eye"></i></a></td>
@@ -181,7 +181,7 @@
               @if(count($treatments)>0)
               @foreach($treatments as $treatment)
                 <tr>
-                <td>{{App\Pacient::getPacient($treatment->pacient_id)}}</td>
+                <td>{{App\Models\Pacient::getPacient($treatment->pacient_id)}}</td>
                 <td>{{$treatment->starting_date}}</td>
                 <td>{{$treatment->duration}}</td>
                 <td><a class="btn btn-circle btn-secondary btn-sm" href="/treatment/{{$treatment->id}}"><i class="fa fa-eye"></i></a></td>
@@ -209,8 +209,8 @@
               @if(count($reports)>0)
               @foreach($reports as $report)
                 <tr>
-                <td>{{App\Pacient::getPacient($report->pacient_id)}}</td>
-                <td>{{App\User::getUser($report->user_id)}}</td>
+                <td>{{App\Models\Pacient::getPacient($report->pacient_id)}}</td>
+                <td>{{App\Models\User::getUser($report->user_id)}}</td>
                 <td>{{\Carbon\Carbon::parse($report->created_at)->format("d/m/Y H:i:s")}}</td>
                 <td><a class="btn btn-circle btn-secondary btn-sm" href="/report/{{$report->id}}"><i class="fa fa-eye"></i></a></td>
                 </tr>
@@ -237,7 +237,7 @@
                         @if(count($debt)>0)
                         @foreach($debt as $db)
                           <tr>
-                          <td>{{App\Pacient::getPacient($db->pacient_id)}}</td>
+                          <td>{{App\Models\Pacient::getPacient($db->pacient_id)}}</td>
                           <td>{{\Carbon\Carbon::parse($db->created_at)->format("d/m/Y H:i:s")}}</td>
                           <td>{{$db->value}} €</td>
                           <td>{{$db->deadline}}</td>
@@ -265,7 +265,7 @@
                         @if(count($payment)>0)
                         @foreach($payment as $p)
                           <tr>
-                          <td>{{App\Pacient::getPacient($p->pacient_id)}}</td>
+                          <td>{{App\Models\Pacient::getPacient($p->pacient_id)}}</td>
                           <td>{{\Carbon\Carbon::parse($p->created_at)->format("d/m/Y H:i:s")}}</td>
                           <td>{{$p->value}} €</td>
                           <td><a class="btn btn-circle btn-secondary btn-sm" href="/payment/{{$p->id}}"><i class="fa fa-eye"></i></a></td>

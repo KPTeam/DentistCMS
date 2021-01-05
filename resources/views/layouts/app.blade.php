@@ -8,14 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') - {{App\User::getAppName()}}</title>
+    <title>@yield('title') - Dentist CMS</title>
 
     <!-- Styles -->
-    @if(App\User::getAppTheme() == false)
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @else
-    <link href="{{ asset('css/dark-app.css') }}" rel="stylesheet">
-    @endif
     <!-- SB CSS -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -55,9 +51,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
-          <img src="{{App\User::getLogo()}}" class="img-fluid"/>
+          <img src="" class="img-fluid"/>
         </div>
-        <div class="sidebar-brand-text mx-3">{{App\User::getAppName()}}</div>
+        <div class="sidebar-brand-text mx-3">Dentist CMS</div>
       </a>
 
       <!-- Divider -->
@@ -161,10 +157,10 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content" class="@if(App\User::getAppTheme() == true) bg-secondary @else bg-white @endif ">
+      <div id="content" class="bg-white ">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light @if(App\User::getAppTheme() == true) bg-dark @else bg-white @endif topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-whitemtopbar mb-4 static-top shadow">
 
               <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -210,61 +206,6 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                @if(App\Notifications::getNotificationsNumber() > 0)
-                <span id="not-number" class="badge badge-danger badge-counter">{{App\Notifications::getNotificationsNumber()}}</span>
-                @else
-                @endif
-
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right keep-open-on-click shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Njoftimet
-                </h6>
-                <ul id="notifications-list" class="list-group">
-                @if(App\Notifications::getNotificationsNumber() === 0)
-                <li class="list-group-item p-0">
-                <a class="dropdown-item d-flex align-items-center" href="/notifications">
-                  <div class="mr-3">
-                  </div>
-                  <div>
-                    <span>Nuk ka njoftime</span>
-                  </div>
-                </a>
-                </li>
-                @else
-
-                @foreach(App\Notifications::getNotifications() as $not)
-              <li id="not{{$not->id}}" class="list-group-item p-0">
-                <div class="dropdown-item d-flex align-items-center" >
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div id="notifications">
-                    <div class="small text-gray-500">{{$not->created_at}}</div>
-                    <span class="font-weight-bold">{{$not->description}}!</span>
-                  </div>
-                  <div class="float-right">
-                      <a class="close" href="#" id="deleteNotification" onclick ="markAsRead({{$not->id}})" >
-                          <span>&times;</span>
-                      </a>
-                  </div>
-                </div>
-              </li>
-                @endforeach
-
-                </ul>
-                @endif
-                <a class="dropdown-item text-center small text-gray-500" href="/notifications">Shiko të gjitha njoftimet</a>
-              </div>
-            </li>
-
 
 
             <div class="topbar-divider d-none d-sm-block"></div>
@@ -360,7 +301,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer @if(App\User::getAppTheme() == true) bg-dark @else bg-white @endif ">
+      <footer class="sticky-footer  bg-white  ">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Kreative Programming Team {{date('Y')}} </span>

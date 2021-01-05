@@ -14,8 +14,8 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pacient_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('pacient_id')->unsigned();
             $table->text('value');
             $table->foreign('pacient_id')->references('id')->on('pacients');
             $table->timestamps();

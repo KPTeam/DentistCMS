@@ -47,7 +47,7 @@ function deleteCart(id)
       <div class="col-lg-12">
         <div class="p-5">
           <div class="text-center">
-            <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Shto Pagesën!</h1>
+            <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Shto Pagesën!</h1>
           </div>
           <form method="POST" action="{{ route('payment.store') }}">
             {{ csrf_field() }}

@@ -47,7 +47,7 @@ function deleteCart(id)
       <div class="col-lg-12">
         <div class="p-5">
           <div class="text-center">
-            <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Pagesën!</h1>
+            <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Pagesën!</h1>
           </div>
           <form method="POST" action="{{ route('payment.update',$payment->id) }}">
             {{ method_field('PUT') }}
@@ -58,7 +58,7 @@ function deleteCart(id)
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-primary" type="button" id="create-termin-button" data-toggle="modal" data-target="#pacientModal"><i class="fa fa-plus"></i> </button>
                 </div>
-                <input readonly value="{{App\Pacient::getPacient($payment->pacient_id)}}" placeholder="Pacienti" class="form-control form-control-user @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"   data-toggle="modal" data-target="#pacientModal" />
+                <input readonly value="{{App\Models\Pacient::getPacient($payment->pacient_id)}}" placeholder="Pacienti" class="form-control form-control-user @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"   data-toggle="modal" data-target="#pacientModal" />
                 <input  hidden id="pacient-id" value="{{$payment->pacient_id}}"  name="pacient-id"/>
             <div class="input-group-append">
                 <button type="button"  class="btn btn-outline-danger" onclick="document.getElementById('pacient').value=''; document.getElementById('pacient-id').value='';" >

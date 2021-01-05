@@ -7,12 +7,12 @@
       <!-- Nested Row within Card Body -->
       <div class="row">
         <div class="col-lg-5 m-auto d-flex justify-content-center ">
-        <img src="{{App\User::getLogo()}}" class="img-fluid" />
+        <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
         </div>
         <div class="col-lg-7">
           <div class="p-5">
             <div class="text-center">
-              <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Shërbim!</h1>
+              <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Shërbim!</h1>
             </div>
             <form class="user" method="POST" action="{{ route('services.update',$service->id) }}">
                 {{ method_field('PUT') }}

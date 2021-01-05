@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">Kryefaqja</h1>
+            <h1 class="h3 mb-0  ">Kryefaqja</h1>
             <div class="row">
             <a href="/appointment/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-2"><i class="fas fa-calendar fa-sm text-white-50"></i> Krijo Termin</a>
             <a href="/payment/create" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-credit-card fa-sm text-white-50"></i> Shto Pagesë</a>
@@ -25,7 +25,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Terminet sot</div>
-                      <div class="h5 mb-0 font-weight-bold @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">{{App\Appointment::getAppointmentNumberToday(date('Y-m-d'))}}</div>
+                      <div class="h5 mb-0 font-weight-bold  ">{{App\Models\Appointment::getAppointmentNumberToday(date('Y-m-d'))}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -42,7 +42,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Faturat sot</div>
-                      <div class="h5 mb-0 font-weight-bold @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">{{count($reports)}}</div>
+                      <div class="h5 mb-0 font-weight-bold  ">{{count($reports)}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-scroll fa-2x text-gray-300"></i>
@@ -61,7 +61,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Vizitat sot</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">{{count($visits)}}</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold  ">{{count($visits)}}</div>
                         </div>
                       </div>
                     </div>
@@ -80,7 +80,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Trajtimet sot</div>
-                      <div class="h5 mb-0 font-weight-bold @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">{{count($treatments)}}</div>
+                      <div class="h5 mb-0 font-weight-bold  ">{{count($treatments)}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-syringe fa-2x text-gray-300"></i>
@@ -184,8 +184,8 @@
                             @if(count($reports) > 0)
                             @foreach($reports as $report)
                           <tr>
-                            <td>{{App\Pacient::getPacientName($report->pacient_id)}}</td>
-                            <td>{{App\User::getUser($report->user_id)}}</td>
+                            <td>{{App\Models\Pacient::getPacientName($report->pacient_id)}}</td>
+                            <td>{{App\Models\User::getUser($report->user_id)}}</td>
                             <td>{{\Carbon\Carbon::parse($report->created_at)->format("d/m/Y H:i:s")}}</td>
                             <td><a href="/report/{{$report->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
 

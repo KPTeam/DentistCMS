@@ -7,7 +7,7 @@
 <!-- Page Heading -->
 <div class="row">
   <div class="col-sm-6">
-    <h1 class="h3 mb-4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-800 @endif">Raporti Ditor</h1>
+    <h1 class="h3 mb-4  ">Raporti Ditor</h1>
   </div>
   <div class="col-sm-3 ">
 
@@ -133,8 +133,8 @@
                   @if(count($appointements) > 0)
                   @foreach($appointements as $appointment)
                 <tr>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$appointment->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($appointment->pacient_id)}}</td>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$appointment->user_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($appointment->user_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$appointment->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($appointment->pacient_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$appointment->user_id}}"><i class="fa fa-user-md"></i></a> {{App\Models\User::getUser($appointment->user_id)}}</td>
                   <td>{{$appointment->date_of_appointment}}</td>
                   <td>{{$appointment->time_of_appointment}}</td>
                   <td><a href="/appointment/{{$appointment->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
@@ -179,8 +179,8 @@
                   @if(count($visit) > 0)
                   @foreach($visit as $vs)
                 <tr>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$vs->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($vs->pacient_id)}}</td>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$vs->user_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($vs->user_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$vs->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($vs->pacient_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$vs->user_id}}"><i class="fa fa-user-md"></i></a> {{App\Models\User::getUser($vs->user_id)}}</td>
                   <td>{{$vs->date_of_visit}}</td>
                   <td>{{$vs->time_of_visit}}</td>
                   <td><a href="/visit/{{$vs->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
@@ -223,7 +223,7 @@
                   @if(count($treatment) > 0)
                   @foreach($treatment as $tr)
                 <tr>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$tr->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($tr->pacient_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$tr->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($tr->pacient_id)}}</td>
                   <td>{{$tr->starting_date}}</td>
                   <td>{{$tr->duration}}</td>
                   <td><a href="/treatment/{{$tr->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
@@ -266,8 +266,8 @@
                   @if(count($reports) > 0)
                   @foreach($reports as $report)
                 <tr>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$report->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($report->pacient_id)}}</td>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$report->user_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($report->user_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$report->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($report->pacient_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$report->user_id}}"><i class="fa fa-user-md"></i></a> {{App\Models\User::getUser($report->user_id)}}</td>
                   <td>
                     {{\Carbon\Carbon::parse($report->created_at)->format("d/m/Y H:i:s")}}</td>
                   <td><a href="/report/{{$report->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
@@ -355,7 +355,7 @@
                   @if(count($debt) > 0)
                   @foreach($debt as $d)
                 <tr>
-                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$d->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($d->pacient_id)}}</td>
+                  <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$d->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($d->pacient_id)}}</td>
                   <td>{{$d->deadline}}</td>
                   <td>{{$d->value}} €</td>
                   <td><a href="/debt/{{$d->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>
@@ -398,7 +398,7 @@
                     @if(count($payment) > 0)
                     @foreach($payment as $p)
                   <tr>
-                    <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$p->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Pacient::getPacient($p->pacient_id)}}</td>
+                    <td><a class="btn btn-circle btn-secondary btn-sm" href="/pacient/{{$p->pacient_id}}"><i class="fa fa-user"></i></a> {{App\Models\Pacient::getPacient($p->pacient_id)}}</td>
                     <td>{{$p->value}} €</td>
                     <td>{{\Carbon\Carbon::parse($p->created_at)->format("d/m/Y H:i:s")}}</td>
                     <td><a href="/payment/{{$p->id}}" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-eye"></i></a> </td>

@@ -15,9 +15,9 @@ class CreatePaymentsServicesTable extends Migration
     {
         Schema::create('payments_services', function (Blueprint $table) {
             $table->id();
-            $table->integer('payment_id')->unsigned();
+            $table->unsignedBigInteger('payment_id')->unsigned();
             $table->foreign('payment_id')->references('id')->on('payments');
-            $table->integer('services_id')->unsigned();
+            $table->unsignedBigInteger('services_id')->unsigned();
             $table->foreign('services_id')->references('id')->on('services');
             $table->string('tooth');
             $table->string('discount');

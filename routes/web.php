@@ -11,8 +11,11 @@
 |
 */
 
+
+
+/*
 Route::get('/', 'HomeController@index');
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 Route::resource('appointment', 'AppointmentController');
 Route::resource('contact', 'ContactController');
 Route::resource('pacient', 'PacientController');
@@ -57,4 +60,4 @@ Route::get('/getAppointments', 'HomeController@getAppointments' );
 Route::post('/addCart', 'HomeController@addToCart' );
 Route::post('/updateCart', 'HomeController@updateToCart' );
 Route::post('/deleteCart', 'HomeController@deleteFromCart' );
-Route::get('/logs', 'HomeController@logs' );
+Route::get('/logs', 'HomeController@logs' );*/

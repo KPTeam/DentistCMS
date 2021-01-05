@@ -14,9 +14,9 @@ class CreateVisitsTable extends Migration
     public function up()
     {
         Schema::create('visits', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pacient_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('pacient_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
             $table->date('date_of_visit');
             $table->string('time_of_visit');
             $table->foreign('user_id')->references('id')->on('users');

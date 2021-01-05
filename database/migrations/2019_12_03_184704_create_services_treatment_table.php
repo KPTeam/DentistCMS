@@ -14,10 +14,10 @@ class CreateServicesTreatmentTable extends Migration
     public function up()
     {
         Schema::create('services_treatment', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('treatment_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('treatment_id')->unsigned();
             $table->foreign('treatment_id')->references('id')->on('treatments');
-            $table->integer('services_id')->unsigned();
+            $table->unsignedBigInteger('services_id')->unsigned();
             $table->foreign('services_id')->references('id')->on('services');
         });
     }

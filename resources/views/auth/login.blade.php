@@ -14,11 +14,11 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6  d-flex justify-content-center">
-              <img src="{{App\User::getLogo()}}" class="img-fluid text-center" /></div>
+              <img src="{{App\Models\User::getLogo()}}" class="img-fluid text-center" /></div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Mirësevini në {{App\User::getAppName()}}</h1>
+                    <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Mirësevini në {{App\Models\User::getAppName()}}</h1>
                   </div>
                   <form class="user" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

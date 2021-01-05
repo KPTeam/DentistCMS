@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Appointment;
-use App\Treatment;
-use App\Pacient;
-use App\Report;
+use App\Models\User;
+use App\Models\Appointment;
+use App\Models\Treatment;
+use App\Models\Pacient;
+use App\Models\Report;
 use App\Services;
-use App\Visit;
+use App\Models\Visit;
 use App\Debt;
 use App\Bill;
 use App\Payment;
-use App\Notifications;
+use App\Models\Notifications;
 use DataTables;
 use DB;
 use Carbon\Carbon;
@@ -205,20 +205,20 @@ class HomeController extends Controller
     {
         $activity = Activity::all();
         $table = DataTables::of($activity)
-        ->editColumn ('Subjekti','@if($subject_type == "App\Appointment") Termin
+        ->editColumn ('Subjekti','@if($subject_type == "App\Models\Appointment") Termin
                                     @elseif($subject_type == "App\Bill") Fature
                                     @elseif($subject_type == "App\Debt") Borgj
-                                    @elseif($subject_type == "App\Pacient") Pacient
+                                    @elseif($subject_type == "App\Models\Pacient") Pacient
                                     @elseif($subject_type == "App\Payment") Pagese
-                                    @elseif($subject_type == "App\Report") Raport
-                                    @elseif($subject_type == "App\Role") Roli
+                                    @elseif($subject_type == "App\Models\Report") Raport
+                                    @elseif($subject_type == "App\Models\Role") Roli
                                     @elseif($subject_type == "App\Services") Sherbim
-                                    @elseif($subject_type == "App\Treatment") Trajtim
-                                    @elseif($subject_type == "App\User") Perdorues
+                                    @elseif($subject_type == "App\Models\Treatment") Trajtim
+                                    @elseif($subject_type == "App\Models\User") Perdorues
                                     @elseif($subject_type == "App\Vizit")  Vizit
                                     @else Njoftim @endif')
         ->editColumn ('Pershkrimi','@if($description == "logged_in") Kyqja @elseif($description == "created") Shtuar @elseif($description == "updated") Ndryshuar @else Fshirë @endif')
-        ->editColumn ('Perdoruesi','@if($causer_id != null)<a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$causer_id}}"><i class="fa fa-user-md"></i></a> {{App\User::getUser($causer_id)}} @else Ska @endif')
+        ->editColumn ('Perdoruesi','@if($causer_id != null)<a class="btn btn-circle btn-secondary btn-sm" href="/user/{{$causer_id}}"><i class="fa fa-user-md"></i></a> {{App\Models\User::getUser($causer_id)}} @else Ska @endif')
         ->editColumn ('Data','{{\Carbon\Carbon::parse($created_at)->format("d/m/Y H:i:s")}}')
         ->addColumn('Info','<button type="button" class="btn btn-secondary btn-circle" data-toggle="modal" data-target="#exampleModal{{$id}}">
         <i class="fa fa-eye"></i>
@@ -235,7 +235,7 @@ class HomeController extends Controller
               </button>
             </div>
             <div class="modal-body">
-            @if($subject_type === "App\Appointment")
+            @if($subject_type === "App\Models\Appointment")
             <table class="table table-stripped">
             <tbody>
                 <tr>
@@ -302,7 +302,7 @@ class HomeController extends Controller
             </tr>
             </tbody>
             </table>
-            @elseif($subject_type == "App\Pacient")
+            @elseif($subject_type == "App\Models\Pacient")
             <table class="table table-stripped">
             <tbody>
                 <tr>
@@ -368,7 +368,7 @@ class HomeController extends Controller
                 </tr>
             </tbody>
             </table>
-            @elseif($subject_type == "App\Report")
+            @elseif($subject_type == "App\Models\Report")
             <table class="table table-stripped">
              <thead>
                 <tr>
@@ -412,7 +412,7 @@ class HomeController extends Controller
                 </tr>
             </tbody>
             </table>
-            @elseif($subject_type == "App\Role")
+            @elseif($subject_type == "App\Models\Role")
             <table class="table table-stripped">
            <tbody>
                 <tr>
@@ -450,7 +450,7 @@ class HomeController extends Controller
                 </tr>
             </tbody>
             </table>
-            @elseif($subject_type == "App\Treatment")
+            @elseif($subject_type == "App\Models\Treatment")
             <table class="table table-stripped">
             <tbody>
                 <tr>
@@ -471,7 +471,7 @@ class HomeController extends Controller
                 </tr>
             </tbody>
             </table>
-            @elseif($subject_type == "App\User")
+            @elseif($subject_type == "App\Models\User")
             @if($description == "logged_in")
                 <table class="table table-stripped">
                 <tbody>
@@ -507,7 +507,7 @@ class HomeController extends Controller
             </tbody>
             </table>
             @endif
-            @elseif($subject_type == "App\Visit")
+            @elseif($subject_type == "App\Models\Visit")
             <table class="table table-stripped">
             <tbody>
                 <tr>

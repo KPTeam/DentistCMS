@@ -14,9 +14,9 @@ class CreateBillsTable extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('subject');
-            $table->integer('bill_nr');
+            $table->unsignedBigInteger('bill_nr');
             $table->date('deadline');
             $table->string('value');
             $table->string('file')->nullable(true);

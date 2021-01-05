@@ -10,7 +10,8 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        <input id="role" type="text" name="role_id" value="1" hidden>
+                        <input id="color" type="text" name="color" value="#0000ff" hidden>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 

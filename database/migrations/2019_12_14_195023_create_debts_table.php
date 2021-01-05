@@ -14,10 +14,10 @@ class CreateDebtsTable extends Migration
     public function up()
     {
         Schema::create('debts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pacient_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('pacient_id')->unsigned();
             $table->date('deadline');
-            $table->integer('value');
+            $table->unsignedBigInteger('value');
             $table->foreign('pacient_id')->references('id')->on('pacients');
             $table->timestamps();
         });

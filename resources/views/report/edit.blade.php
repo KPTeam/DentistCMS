@@ -8,12 +8,12 @@
     <div class="card-body p-0">
       <div class="row">
         <div class="col-lg-5 m-auto d-flex justify-content-center ">
-          <img src="{{App\User::getLogo()}}" class="img-fluid" />
+          <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
         </div>
         <div class="col-lg-7">
           <div class="p-5">
             <div class="text-center">
-              <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Raport!</h1>
+              <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Raport!</h1>
             </div>
             <form class="user" method="POST"action="{{ route('report.update',$report->id) }}">
                 {{ method_field('PUT') }}
@@ -24,7 +24,7 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary" type="button"  data-toggle="modal" data-target="#pacientModal"><i class="fa fa-plus"></i> </button>
                     </div>
-                <input readonly value="{{App\Pacient::getPacient($report->pacient_id)}}" placeholder="Pacienti" class="form-control form-control-user @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"   data-toggle="modal" data-target="#pacientModal" />
+                <input readonly value="{{App\Models\Pacient::getPacient($report->pacient_id)}}" placeholder="Pacienti" class="form-control form-control-user @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"   data-toggle="modal" data-target="#pacientModal" />
                 <input  hidden id="pacient-id" value="{{$report->pacient_id}}"  name="pacient-id"/>
                 <div class="input-group-append">
                     <button type="button"  class="btn btn-outline-danger" onclick="document.getElementById('pacient').value=''; document.getElementById('pacient-id').value='';" >
@@ -70,7 +70,7 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary" type="button"  data-toggle="modal" data-target="#userModal"><i class="fa fa-plus"></i> </button>
                     </div>
-                <input readonly value="{{App\User::getUser($report->user_id)}}" placeholder="Dentisti" class="form-control form-control-user @error('user-id') is-invalid @enderror" id="user" name="user" data-toggle="modal" data-target="#userModal"  />
+                <input readonly value="{{App\Models\User::getUser($report->user_id)}}" placeholder="Dentisti" class="form-control form-control-user @error('user-id') is-invalid @enderror" id="user" name="user" data-toggle="modal" data-target="#userModal"  />
                 <input  hidden id="user-id"  value="{{$report->user_id}}" name="user-id"/>
                 <div class="input-group-append">
                     <button type="button"  class="btn btn-outline-danger" onclick="document.getElementById('user').value=''; document.getElementById('user-id').value='';" >

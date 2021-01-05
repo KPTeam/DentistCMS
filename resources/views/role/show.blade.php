@@ -7,12 +7,12 @@
           <!-- Nested Row within Card Body -->
           <div class="row">
             <div class="col-lg-5 m-auto d-flex justify-content-center ">
-            <img src="{{App\User::getLogo()}}" class="img-fluid" />
+            <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
             </div>
             <div class="col-lg-7">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e rolit</h1>
+                  <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Të dhënat e rolit</h1>
                 </div>
                 <table class="table table-striped ">
                         <tbody>
@@ -22,81 +22,81 @@
                             </tr>
                             <tr>
                                 <th>Pacienti:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-pacient')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Termine:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-appointment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Vizita:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-visit')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Tratime:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-treatment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Raporte:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-report')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Sherbime:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-services')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Perdoruesit:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-user')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Rolet:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-role')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Borgji:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-debt')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             <tr>
                                 <th>Shpenzimet:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-bill')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
 
                             <tr>
                                 <th>Pagesat:</th>
-                                <td scope="row"> Shiko @if(App\Role::hasPermission($role->id, 'view-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
-                                    Krjio @if(App\Role::hasPermission($role->id, 'create-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Ndrysho @if(App\Role::hasPermission($role->id, 'edit-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
-                                    Fshij @if(App\Role::hasPermission($role->id, 'delete-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
+                                <td scope="row"> Shiko @if(App\Models\Role::hasPermission($role->id, 'view-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif| 
+                                    Krjio @if(App\Models\Role::hasPermission($role->id, 'create-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Ndrysho @if(App\Models\Role::hasPermission($role->id, 'edit-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif | 
+                                    Fshij @if(App\Models\Role::hasPermission($role->id, 'delete-payment')) <i class="fa fa-check-square"></i> @else <i class="fa fa-square"></i> @endif</td>
                             </tr>
                             </tbody>
                     </table>

@@ -6,12 +6,12 @@
   <div class="card-body p-0">
     <div class="row">
       <div class="col-lg-5 m-auto d-flex justify-content-center ">
-        <img src="{{App\User::getLogo()}}" class="img-fluid" />
+        <img src="{{App\Models\User::getLogo()}}" class="img-fluid" />
       </div>
       <div class="col-lg-7">
         <div class="p-5">
           <div class="text-center">
-            <h1 class="h4 @if(App\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Trajtim!</h1>
+            <h1 class="h4 @if(App\Models\User::getAppTheme() == true) text-gray-100 @else text-gray-900 @endif mb-4">Ndrysho Trajtim!</h1>
           </div>
           <form class="user"  enctype="multipart/form-data" method="POST" action="{{ route('treatment.update',$treatment->id) }}">
                 {{ method_field('PUT') }}
@@ -22,7 +22,7 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary" type="button"  data-toggle="modal" data-target="#pacientModal"><i class="fa fa-plus"></i> </button>
                     </div>
-                  <input readonly placeholder="Pacienti"  class="form-control form-control-user   @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"  value="{{App\Pacient::getPacient($treatment->pacient_id)}}"/>
+                  <input readonly placeholder="Pacienti"  class="form-control form-control-user   @error('pacient-id') is-invalid @enderror" id="pacient" name="pacient"  value="{{App\Models\Pacient::getPacient($treatment->pacient_id)}}"/>
                     <input   hidden id="pacient-id" value="{{$treatment->pacient_id}}"  name="pacient-id"/>
                     <div class="input-group-append">
                         <button type="button"  class="btn btn-outline-danger" onclick="document.getElementById('pacient').value=''; document.getElementById('pacient-id').value='';" >
